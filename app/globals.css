@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @tailwind utilities;
-
+html {
+  scroll-padding-top: 80px;
+}
 @layer components {
     .nav__link {
       @apply relative text-base font-medium w-fit block text-white;

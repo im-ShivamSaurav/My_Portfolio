@@ -24,10 +24,10 @@ const Hero = () => {
                 {/* Description */}
                 <p className='mt-6 text-sm md:text-base text-white text-opacity-60'>{BaseInfo.description}</p>
                 {/*Button */}
-                <button className='flex items-center md:px-8 md:py-2.5 px-6 py-1.5 text-white font-semibold text-sm md:text-large transition-all duaration-200 rounded-lg mt-8 bg-blue-700 hover:bg-blue-900 space-x-2'>
+                <a  href="/resume/ShivamResume(final).pdf" download="Shivam-Resume.pdf"><button className="flex items-center md:px-8 md:py-2.5 px-6 py-1.5 text-white font-semibold text-sm md:text-large transition-all duration-200 rounded-lg mt-8 bg-blue-700 hover:bg-blue-900 space-x-2">
                     <span>Download CV</span>
                     <FaDownload/>
-                </button>
+                </button></a>
             </div>
             {/* Image Content */}
             <div className='mx-auto hidden lg:block rounded-[3rem] border-[3.5px] border-blue-950 overflow-x-hidden'>

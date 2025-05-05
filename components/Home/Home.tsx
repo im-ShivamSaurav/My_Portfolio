@@ -9,12 +9,22 @@ import Contact from './Contact/Contact'
 const Home = () => {
   return (
     <div>
-      <Hero/>
-      <About />
-      <Blogs/>
-      <Projects/>
-      <Skills/>
-      <Contact/>
+      <div><Hero/></div>
+      <div id="About">
+        <About/>
+        </div>
+      <div id='Blogs'>
+        <Blogs/>
+        </div>
+      <div id='Projects'>
+        <Projects/>
+        </div>
+      <div id='Skills'>
+        <Skills/>
+        </div>
+      <div id='Contact'>
+        <Contact/>
+        </div>
     </div>
   )
 }
