@@ -1,19 +1,49 @@
 'use client'
 import SectionHeading from "@/components/Helper/SectionHeading";
-import { aboutInfo } from "@/Data/data";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import Lottie from "lottie-react";
 import developerAnimation from "@/public/lotties/developer.json"; // adjust the path if needed
-// import Image from "next/image";
+
+// Define the type for the AboutInfo object (based on your API response)
+interface AboutInfo {
+  title: string;
+  description: string;
+}
 
 const About = () => {
+  // State to hold the fetched data
+  const [aboutInfo, setAboutInfo] = useState<AboutInfo | null>(null);
+
+  // Fetch data from the API route
+  useEffect(() => {
+    const fetchAboutInfo = async () => {
+      try {
+        const response = await fetch("/api/AboutInfo");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        setAboutInfo(data); // Set the fetched data into state
+      } catch (error) {
+        console.error("Error fetching AboutInfo:", error);
+      }
+    };
+
+    fetchAboutInfo();
+  }, []);
+
+  // If data is not yet available, show loading state
+  if (!aboutInfo) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="pt-16 pb-16 bg-[#050709]">
       {/* Section Heading */}
       <SectionHeading> About Me </SectionHeading>
       <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-20">
-        {/* Text Cotent */}
+        {/* Text Content */}
         <div>
           <h1 className="text-bg text-[26px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-200">
             {aboutInfo.title}
@@ -60,81 +90,9 @@ const About = () => {
         <div className="w-full h-full flex items-center justify-center">
           <Lottie animationData={developerAnimation} loop={true} className="w-[90%] h-auto" />
         </div>
-        <div>
-
-        </div>
       </div>
     </div>
   );
 };
 
 export default About;
-
-{/* Stacks Content
-        <div className="grid grid-cols-2 gap-16 items-center lg:mx-auto">
-        
-          <div>
-            <Image
-              src="/images/customer.png"
-              alt="image"
-              width={80}
-              height={80}
-              className="mx-auto"
-            />
-            <p className="mt-3 font-bold text-xl text-white text-center">
-           
-            </p>
-            <p className="text-base sm:text-lg text-gray-400 text-center">
-              Satisfied Customers
-            </p>
-          </div>
-       
-         <div>
-            <Image
-              src="/images/experience.png"
-              alt="image"
-              width={80}
-              height={80}
-              className="mx-auto"
-            />
-            <p className="mt-3 font-bold text-xl text-white text-center">
-              {aboutInfo.experience} 
-            </p>
-            <p className="text-base sm:text-lg text-gray-400 text-center">
-              Years Experience
-            </p>
-          </div>
-       
-          <div>
-            <Image
-              src="/images/completed.png"
-              alt="image"
-              width={80}
-              height={80}
-              className="mx-auto"
-            />
-            <p className="mt-3 font-bold text-xl text-white text-center">
-              {aboutInfo.project}
-            </p>
-            <p className="text-base sm:text-lg text-gray-400 text-center">
-              Completed Projects
-            </p>
-          </div>
-          
-          <div>
-            <Image
-              src="/images/rocket.png"
-              alt="image"
-              width={80}
-              height={80}
-              className="mx-auto"
-            />
-            <p className="mt-3 font-bold text-xl text-white text-center">
-              {aboutInfo.website}
-            </p>
-            <p className="text-base sm:text-lg text-gray-400 text-center">
-              Websites Launched
-            </p>
-          </div>
-        </div>
-  */}

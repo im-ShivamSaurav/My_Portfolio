@@ -11,18 +11,13 @@ export const navLinks = [
     },
     {
         id:3,
-        url: '/services',
-        label: 'Servies',
+        url: '/skills',
+        label: 'Skills',
     },
     {
         id:4,
         url: '/projects',
         label: 'Projects',
-    },
-    {
-        id:5,
-        url: '/reviews',
-        label: 'Reviews',
     },
     {
         id:6,
