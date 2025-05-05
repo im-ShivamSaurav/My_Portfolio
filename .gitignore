@@ -43,3 +43,6 @@ next-env.d.ts
 /Data/
 
 /scripts/
+
+# Ignore generated code
+app/generated/
