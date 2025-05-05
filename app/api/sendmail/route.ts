@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-dotenv.config();
+
 // Handle POST requests to send email
 export async function POST(req: Request) {
   const { name, email, phone, reason, message } = await req.json();
