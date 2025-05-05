@@ -2,8 +2,11 @@
 import SectionHeading from "@/components/Helper/SectionHeading";
 import React, { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
-import Lottie from "lottie-react";
 import developerAnimation from "@/public/lotties/developer.json"; // adjust the path if needed
+import dynamic from "next/dynamic";
+
+// Dynamically import Lottie with no SSR
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 // Define the type for the AboutInfo object (based on your API response)
 interface AboutInfo {
