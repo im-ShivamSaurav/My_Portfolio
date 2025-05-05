@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { FaEnvelope, FaMap, FaPhone } from 'react-icons/fa'
+import { FaEnvelope, FaMap, FaLinkedin } from 'react-icons/fa'
+import Link from 'next/link'
 
 type Contact = {
   phone: string
@@ -48,15 +49,15 @@ const ContactInfo = () => {
 
   return (
     <div>
-      <div className='flex items-center space-x-8'>
+      <Link href="https://www.linkedin.com/in/shivam-saurav/"><div className='flex items-center space-x-8'>
         <div className='w-10 h-10 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-900 flex items-center justify-center flex-col'>
-          <FaPhone className='w-4 h-4 md:w-7 md:h-7 text-white transform-all scale-x-[-1]' />
+          <FaLinkedin className='w-4 h-4 md:w-7 md:h-7 text-white transform-all ' />
         </div>
         <div>
-          <h1 className='text-lg sm:text-xl text-white font-bold'>Phone</h1>
-          <h1 className='text-white text-base sm:text-lg text-opacity-70'>{contactData.phone}</h1>
+          <h1 className='text-lg sm:text-xl text-white font-bold'>LinkedIn</h1>
+          <h1 className='text-white text-base sm:text-lg text-opacity-70'>shivam-saurav</h1>
         </div>
-      </div>
+      </div></Link>
 
       <div className='flex items-center space-x-8 mt-8 mb-8'>
         <div className='w-10 h-10 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-900  flex items-center justify-center flex-col'>
