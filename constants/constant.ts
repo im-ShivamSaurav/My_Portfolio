@@ -14,11 +14,7 @@ export const navLinks = [
         url: '#Skills',
         label: 'Skills',
     },
-    {
-        id:4,
-        url: '#Blogs',
-        label: 'Blogs',
-    },
+    
     {
         id:5,
         url: '#Projects',
